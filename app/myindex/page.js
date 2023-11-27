@@ -8,6 +8,7 @@ import { useState } from 'react';
 import CategorieButton from '@/components/categorieButton';
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { TbVideoPlus } from "react-icons/tb";
+import VideoContainer from '@/components/VideoContainer';
 export default function Home() {
   const menu=Array.from({length:100}, (x, i) => i);
   const [categoria, setCategoria] = useState("Home")
@@ -34,13 +35,62 @@ export default function Home() {
     "Guerra",
     "Western"
 ];
-const Videos=[{
-  img:"",
-  Titulo:"",
-  Canal:"",
-  Vistas:"",
-  Desde:"",
-}]
+const Videos=[
+{
+  image:"/img/Miniatura.png",
+  duration:"10:00",
+  name:"Titulo de prueba en el video",
+  channel:"Channel01",
+  views:"173K",
+  age:"1 año",
+  avatar:"/img/avatar.jpg"
+},
+{
+  image:"/img/Miniatura2.jpg",
+  duration:"10:00",
+  name:"Titulo de prueba en el video",
+  channel:"Channel01",
+  views:"173K",
+  age:"1 año",
+  avatar:"/img/avatar.jpg"
+},
+{
+  image:"/img/Miniatura3.jpg",
+  duration:"10:00",
+  name:"Titulo de prueba en el video",
+  channel:"Channel01",
+  views:"173K",
+  age:"1 año",
+  avatar:"/img/avatar.jpg"
+},
+{
+  image:"/img/Miniatura3.jpg",
+  duration:"10:00",
+  name:"Titulo de prueba en el video",
+  channel:"Channel01",
+  views:"173K",
+  age:"1 año",
+  avatar:"/img/avatar.jpg"
+},
+{
+  image:"/img/Miniatura3.jpg",
+  duration:"10:00",
+  name:"Titulo de prueba en el video",
+  channel:"Channel01",
+  views:"173K",
+  age:"1 año",
+  avatar:"/img/avatar.jpg"
+},
+{
+  image:"/img/Miniatura3.jpg",
+  duration:"10:00",
+  name:"Titulo de prueba en el video",
+  channel:"Channel01",
+  views:"173K",
+  age:"1 año",
+  avatar:"/img/avatar.jpg"
+},
+  ]
   return (
     <div className='min-h-screen w-full bg-white'>
       <header className='w-full h-16 flex flex-row gap-4 justify-between'>
@@ -68,11 +118,14 @@ const Videos=[{
             <div className='w-full flex px-2 py-4' key={item}>{item}</div>
           ))}
         </div>
-        <div className='flex flex-col w-10/12'>
+        <div className='flex flex-col w-10/12 gap-4'>
             <div className='flex flex-row gap-6 overflow-x-hidden hover:overflow-x-scroll'>
               {categoriasDeVideos.map((item)=>(
-                <CategorieButton item={item} categoria={categoria} setCategoria={setCategoria}/>
+                <CategorieButton item={item} key={"Cat"+item}categoria={categoria} setCategoria={setCategoria}/>
               ))}
+            </div>
+            <div className='flex flex-row flex-wrap w-full justify-center gap-3'>
+                {Videos.map((item)=>(<VideoContainer image={item.image} duration={item.duration} name={item.name} channel={item.channel} views={item.views} age={item.age} avatar={item.avatar} />))}
             </div>
         </div>
       </div>
